@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Hermes Agent Unraid template icon">
+  <rect width="256" height="256" rx="40" fill="#101820"/>
+  <path d="M68 198V58h28v55h64V58h28v140h-28v-59H96v59H68z" fill="#f4f7fb"/>
+  <circle cx="128" cy="128" r="92" fill="none" stroke="#58d68d" stroke-width="10"/>
+  <path d="M102 34h52l-26 32-26-32zM102 222h52l-26-32-26 32z" fill="#58d68d"/>
+</svg>
+
