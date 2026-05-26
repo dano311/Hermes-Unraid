@@ -7,10 +7,11 @@ Hermes has good Docker documentation, but no Unraid-specific template. This temp
 - one container running `gateway run`
 - persistent Hermes data mounted at `/opt/data`
 - optional dashboard side-process via `HERMES_DASHBOARD=1`
+- dashboard chat/TUI enabled by default
 - OpenAI-compatible API server on container-localhost, with optional LAN publishing on port `8642`
 - Playwright-friendly shared memory via `--shm-size=1g`
-- Unraid-friendly file ownership using `HERMES_UID=99` and `HERMES_GID=100`
-- no `/opt/hermes` source-code volume mount, which avoids the dashboard permission problems seen in some Unraid attempts
+- official image file ownership using `HERMES_UID=10000` and `HERMES_GID=10000`, which keeps dashboard chat working
+- no `/opt/hermes` source-code volume mount
 
 ## Files
 
@@ -70,7 +71,7 @@ Advanced optional mounts are included but blank by default:
 - Docker socket: mount `/var/run/docker.sock` only if you intentionally want Hermes to control host Docker.
 - Host share mount: point it at a specific share such as `/mnt/user/projects`, not the whole array, unless you understand the risk.
 
-The dashboard's embedded chat/TUI tab is disabled by default. Leave `HERMES_DASHBOARD_TUI=0` if you use `HERMES_UID=99`/`HERMES_GID=100`; some Hermes image versions have permission trouble rebuilding the TUI under a remapped UID. Use Telegram/Discord, the API server, or the Unraid container console for chat until your image version is known-good.
+The dashboard's embedded chat/TUI tab is enabled by default. Leave `HERMES_UID=10000` and `HERMES_GID=10000` if you want dashboard chat to work. Some Hermes image versions have permission trouble rebuilding the TUI under an Unraid-style `99:100` remap; use that remap only if share-file ownership matters more than the dashboard chat tab.
 
 ## Community Applications Submission Notes
 
